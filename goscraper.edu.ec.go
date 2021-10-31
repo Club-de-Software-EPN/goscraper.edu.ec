@@ -15,7 +15,12 @@ limitations under the License.
 */
 package main
 
-import "github.com/Club-de-Software-EPN/goscraper.edu.ec/cmd"
+import (
+	"fmt"
+
+	"github.com/Club-de-Software-EPN/goscraper.edu.ec/cmd"
+	"github.com/Club-de-Software-EPN/goscraper.edu.ec/sites"
+)
 
 func main() {
 	cmd.Execute()
