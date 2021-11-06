@@ -47,6 +47,15 @@ func GetAllSites() (sites map[string]WebSite){
 			sTLD: "edu",
 			ccTLD: "ec",
 		},
+		"Escuela Politécnica del Litoral" : {
+			scheme: "https",
+			subdomains: []string{
+				"",
+			},
+			rootDomain: "espol",
+			sTLD: "edu",
+			ccTLD: "ec",
+		},
 	}
 	return
 }
