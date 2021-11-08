@@ -53,14 +53,12 @@ func GetAllWebsites() (sites map[string]WebSite) {
 		},
     "Universidad Técnica de Cotopaxi": {
 			Scheme: "https",
-			Subdomains: map[string]string{
-				"",
-			},
+			Subdomains: map[string]string{},
 			RootDomain: "utc",
 			STLD:       "edu",
 			CCTLD:      "ec",
-     }
-	}
+	},
+}
 	return
 }
 
