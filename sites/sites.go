@@ -1,70 +1,79 @@
 package sites
 
 type WebSite struct {
-	scheme     string
-	subdomains []string
-	rootDomain string
-	sTLD       string // Sponsored top-level domains
-	ccTLD      string // Country-code top-level domains
+	Scheme         string
+	Subdomains     map[string]string
+	RootDomain     string
+	STLD           string // Sponsored top-level domains
+	CCTLD          string // Country-code top-level domains
+	VulnerableURLs map[string]string
 }
 
-func GetAllSites() (sites map[string]WebSite) {
+func GetAllWebsites() (sites map[string]WebSite) {
 	sites = map[string]WebSite{
 		"Escuela Politécnica Nacional": {
-			scheme: "https",
-			subdomains: []string{
-				"",
-				"fis",
-			},
-			rootDomain: "epn",
-			sTLD:       "edu",
-			ccTLD:      "ec",
+			Scheme:     "https",
+			Subdomains: map[string]string{},
+			RootDomain: "epn",
+			STLD:       "edu",
+			CCTLD:      "ec",
 		},
 		"Universidad de las Fuerzas Armadas": {
-			scheme: "https",
-			subdomains: []string{
-				"",
+			Scheme: "https",
+			Subdomains: map[string]string{
+				"Ciencias Económicas Administrativas y de Comercio": "deceac-el",
 			},
-			rootDomain: "espe",
-			sTLD:       "edu",
-			ccTLD:      "ec",
+			RootDomain: "espe",
+			STLD:       "edu",
+			CCTLD:      "ec",
+			VulnerableURLs: map[string]string{
+				"Personal-Docentes-Investigadores": "/personal-docente-e-investigadores/",
+			},
 		},
 		"Universidad San Francisco de Quito": {
-			scheme: "https",
-			subdomains: []string{
-				"",
-			},
-			rootDomain: "usfq",
-			sTLD:       "edu",
-			ccTLD:      "ec",
+			Scheme:     "https",
+			Subdomains: map[string]string{},
+			RootDomain: "usfq",
+			STLD:       "edu",
+			CCTLD:      "ec",
 		},
 		"Universidad Central del Ecuador": {
-			scheme: "https",
-			subdomains: []string{
-				"",
-			},
-			rootDomain: "uce",
-			sTLD:       "edu",
-			ccTLD:      "ec",
+			Scheme:     "https",
+			Subdomains: map[string]string{},
+			RootDomain: "uce",
+			STLD:       "edu",
+			CCTLD:      "ec",
 		},
 		"Escuela Politécnica del Litoral": {
-			scheme: "https",
-			subdomains: []string{
+			Scheme:     "https",
+			Subdomains: map[string]string{},
+			RootDomain: "espol",
+			STLD:       "edu",
+			CCTLD:      "ec",
+		},
+    "Universidad Técnica de Cotopaxi": {
+			Scheme: "https",
+			Subdomains: map[string]string{
 				"",
 			},
-			rootDomain: "espol",
-			sTLD:       "edu",
-			ccTLD:      "ec",
-		},
-		"Universidad Técnica de Cotopaxi": {
-			scheme: "https",
-			subdomains: []string{
-				"",
-			},
-			rootDomain: "utc",
-			sTLD:       "edu",
-			ccTLD:      "ec",
-		},
+			RootDomain: "utc",
+			STLD:       "edu",
+			CCTLD:      "ec",
+     }
 	}
 	return
+}
+
+func GetVulnerableCollageURLs() map[string][]string {
+
+	var ESPE = GetAllWebsites()["Universidad de las Fuerzas Armadas"]
+
+	return map[string][]string{
+		"ESPE": {
+			ESPE.Scheme + "://" +
+				ESPE.Subdomains["Ciencias Económicas Administrativas y de Comercio"] + "." +
+				ESPE.RootDomain + "." + ESPE.STLD + "." + ESPE.CCTLD + // espe.edu.ec
+				ESPE.VulnerableURLs["Personal-Docentes-Investigadores"],
+		},
+	}
 }
