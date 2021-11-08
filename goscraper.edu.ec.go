@@ -19,9 +19,12 @@ import (
 	"fmt"
 
 	"github.com/Club-de-Software-EPN/goscraper.edu.ec/cmd"
+	scraping "github.com/Club-de-Software-EPN/goscraper.edu.ec/scraping/ESPE"
 	"github.com/Club-de-Software-EPN/goscraper.edu.ec/sites"
 )
 
 func main() {
 	cmd.Execute()
+	fmt.Println(sites.GetVulnerableCollageURLs()["ESPE"])
+	scraping.GetResearcherAndTeachersInfo()
 }
