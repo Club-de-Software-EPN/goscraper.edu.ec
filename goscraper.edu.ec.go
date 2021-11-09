@@ -16,15 +16,17 @@ limitations under the License.
 package main
 
 import (
-	"fmt"
+/*	"fmt"
 
 	"github.com/Club-de-Software-EPN/goscraper.edu.ec/cmd"
 	scraping "github.com/Club-de-Software-EPN/goscraper.edu.ec/scraping/ESPE"
-	"github.com/Club-de-Software-EPN/goscraper.edu.ec/sites"
+	"github.com/Club-de-Software-EPN/goscraper.edu.ec/sites"*/
+	"github.com/Club-de-Software-EPN/goscraper.edu.ec/subdomains"
 )
 
 func main() {
-	cmd.Execute()
-	fmt.Println(sites.GetVulnerableCollageURLs()["ESPE"])
-	scraping.GetResearcherAndTeachersInfo()
+	//cmd.Execute()
+	//fmt.Println(sites.GetVulnerableCollageURLs()["ESPE"])
+	//scraping.GetResearcherAndTeachersInfo()
+	subdomains.GetActiveSubdomains()
 }
