@@ -13,10 +13,15 @@ func GetAllWebsites() (sites map[string]WebSite) {
 	sites = map[string]WebSite{
 		"Escuela Politécnica Nacional": {
 			Scheme:     "https",
-			Subdomains: map[string]string{},
+			Subdomains: map[string]string{
+				"ModeMat": "modemat",
+			},
 			RootDomain: "epn",
 			STLD:       "edu",
 			CCTLD:      "ec",
+			VulnerableURLs: map[string]string{
+				"ModeMat": "/personal",
+			},
 		},
 		"Universidad de las Fuerzas Armadas": {
 			Scheme: "https",
