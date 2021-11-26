@@ -28,13 +28,13 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "goscraper.edu.ec",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "A webscrapping CLI app",
+	Long: fmt.Sprintf(`
+The goscraper.edu.ec project is a CLI application that allows informing pages of the
+Ecuador Higher Education Universities that are susceptible to webscraping techniques. 
+This way it also allows to know if the information of a student such as his identity 
+card, his institutional email, his passwords or his career and faculty, unique codes
+are exposed on the web.`),
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -57,7 +57,7 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 // initConfig reads in config file and ENV variables if set.
