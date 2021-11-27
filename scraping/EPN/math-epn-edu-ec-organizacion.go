@@ -1,4 +1,4 @@
-package scrapmodemat
+package scrapmath
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 func GetPersonalInfo(){
 
 	var EPN = sites.GetAllWebsites()["Escuela Politécnica Nacional"]
-	domain := EPN.Subdomains["ModeMat"] + "." +
+	domain := EPN.Subdomains["Departamento de Matemática"] + "." +
 	EPN.RootDomain + "." + EPN.STLD + "." + EPN.CCTLD
 
 	fmt.Println(domain)
@@ -26,11 +26,11 @@ func GetPersonalInfo(){
 
 	collector.OnHTML(".elementor-widget-wrap", func(htmlElement *colly.HTMLElement){
 		personalName := htmlElement.ChildText("h4")
-		email := htmlElement.ChildText("a", "href=", "class='social-icon inline-block si-small si-light si-rounded'")
+		email := htmlElement.ChildText("span[id='cloak322ac1b843daf7e99f383a737ed04a75']")
 		photo := htmlElement.ChildAttrs("img", "src")
 		data = append(data, [][]string{{personalName,email, photo[0]}}...)
 	})
 
-	collector.Visit(sites.GetVulnerableCollageURLs()["EPN"][0])
-	resources.SaveDataOnCSVFile(data, "data/EPN/modemat-epn-edu-ec-personal")
+	collector.Visit(sites.GetVulnerableCollageURLs()["EPN"][1])
+	resources.SaveDataOnCSVFile(data, "data/EPN/math-epn-edu-ec-organizacion")
 }

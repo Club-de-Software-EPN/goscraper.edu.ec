@@ -15,17 +15,23 @@ func GetAllWebsites() (sites map[string]WebSite) {
 			Scheme:     "https",
 			Subdomains: map[string]string{
 				"ModeMat": "modemat",
+				"Departamento de Matemática": "math",
+				"Fisica": "fisica",
 			},
 			RootDomain: "epn",
 			STLD:       "edu",
 			CCTLD:      "ec",
 			VulnerableURLs: map[string]string{
 				"ModeMat": "/personal",
+				"Organización": "/index.php/organizacion",
+				"Personal académico": "/index.php/departamento/personal-academico",
+				"Directorio Telefónico": "/wp-content/uploads/2019/09/DirectorioTelefonicoV5.pdf",
 			},
 		},
 		"Universidad de las Fuerzas Armadas": {
 			Scheme: "https",
 			Subdomains: map[string]string{
+				"Ciencias Exactas": "dece",
 				"Ciencias Económicas Administrativas y de Comercio": "deceac-el",
 			},
 			RootDomain: "espe",
